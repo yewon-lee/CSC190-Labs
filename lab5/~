@@ -1,0 +1,136 @@
+class stack:
+	def __init__(self):
+		self.storage = []
+		self.count = 0
+	def empty(self):
+		if(self.count==0):
+			return True
+		else:
+			return False
+	def store(self,x):
+		self.storage = self.storage + [x]
+		self.count = self.count + 1
+		return True
+	def retrieve(self):
+		if(self.count==0):
+			return [False,0]
+		else:
+			self.count = self.count - 1
+			rval = self.storage[-1]
+			self.storage = self.storage[0:-1]
+			return [True,rval]	
+class queue:
+	def __init__(self):
+		self.storage = []
+		self.cnt = 0	
+	def empty(self):
+		if (self.cnt==0):
+			return True
+		else:
+			return False
+	def store(self,value):
+		self.storage = self.storage + [value]
+		self.cnt = self.cnt + 1
+		return self.cnt
+	def retrieve(self):
+		if (self.cnt==0):
+			return [False,0]
+		else:
+			r = self.storage[0]
+			self.cnt = self.cnt-1
+			self.storage = self.storage[1:]
+			return [True,r]	
+
+class graph:
+	def __init__(self):
+		self.store = []
+
+	def addVertex(self,n):
+		if(n<=0):
+			return -1
+		else:
+			for i in range(0,n):
+				self.store = self.store + [[]]
+			return len(self.store)
+
+	def addEdge(self,from_idx,to_idx,directed,weight):
+		if(from_idx<0 or to_idx<0):
+			return False
+		elif(directed<>True and directed<>False):
+			return False
+		elif(weight==0):
+			return False
+		else:
+			if (directed == True):
+				self.store[from_idx] = self.store[from_idx]+[[to_idx,weight]]
+			elif (directed == False):
+				self.store[from_idx] = self.store[from_idx]+[[to_idx,weight]]
+				self.store[to_idx] = self.store[to_idx]+[[from_idx,weight]]
+			return True
+
+	def traverseAllHelper(self,start,typeBreadth):
+		accum = []
+		if (typeBreadth==True):
+			C = queue()
+		elif(typeBreadth==False):
+			C = stack()
+		Discovered = [False]*len(self.store)
+		Processed = [False]*len(self.store)	 
+		if(start==)
+		for i in range(beginning,len(self.store)): # i is the vertex, ie the idx for self.store
+			if (Discovered[i]==False):
+				C.store(i)
+			while(C.empty()==False):
+				w = C.retrieve()
+				if(Processed[w[1]]==False):	
+					accum = accum + [w[1]]
+					Processed[w[1]] = True
+				for j in self.store[w[1]]:
+					if (Discovered[j[0]]==False):
+						C.store(j[0])
+						Discovered[j[0]] = True
+	def traverseSTARTHelper(self,start,typeBreadth):
+		accum = []
+                if (typeBreadth==True):
+                        C = queue()
+                elif(typeBreadth==False):
+                        C = stack()
+                Discovered = [False]*len(self.store)
+                Processed = [False]*len(self.store)
+                for i in range(0,len(self.store)): # i is the vertex, ie the idx for self.store
+                        if (Discovered[i]==False):
+                                C.store(i)
+                        while(C.empty()==False):
+                                w = C.retrieve()
+                                if(Processed[w[1]]==False):
+                                        accum = accum + [w[1]]
+                                        Processed[w[1]] = True
+                                for j in self.store[w[1]]:
+                                        if (Discovered[j[0]]==False):
+                                                C.store(j[0])
+                                                Discovered[j[0]] = True
+	def traverse(self,start,typeBreadth):
+		if (typeBreath<>True and typeBreath<>False):
+			return []
+		if (start<>None and start<0):
+			return []
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
